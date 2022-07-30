@@ -1,4 +1,5 @@
 import { HttpHeaders, HttpErrorResponse } from "@angular/common/http";
+import { ToastrService } from "ngx-toastr";
 import { throwError } from "rxjs";
 import { environment } from 'src/environments/environment';
 import { LocalStorageUtils } from '../utils/localstorage';
@@ -7,6 +8,7 @@ export abstract class BaseService {
 
     protected UrlServiceV1: string = environment.apiUrlv1;
     public LocalStorage = new LocalStorageUtils();
+    constructor() {}
 
     protected ObterHeaderJson() {
         return {
@@ -26,12 +28,15 @@ export abstract class BaseService {
     }
 
     protected extractData(response: any) {
-        return response.data || {};
+        debugger
+        return response || {};
     }
 
     protected serviceError(response: Response | any) {
+       
+debugger
         let customError: string[] = [];
-        let customResponse = { error: { errors: [] }}
+        let customResponse = { error: { errors:  [] = [] }}
 
         if (response instanceof HttpErrorResponse) {
 
@@ -45,8 +50,8 @@ export abstract class BaseService {
             
             // Erros do tipo 500 não possuem uma lista de erros
             // A lista de erros do HttpErrorResponse é readonly                
-            customResponse.error.errors = customError;
-            return throwError(customResponse);
+           
+            console.error(customError);
         }
 
         console.error(response);
