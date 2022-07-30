@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row justify-content-sm-center">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="card" >
+          <h5 class="card-title">
+           Login
+          </h5>
+          <div class="card-body ">
+            <form class="card-text" (ngSubmit)="onSubmit()" [formGroup]="form">
+              <div class="row">
+                <div class="col-md-12"></div>
+                <div class="col-md-12">
+                  <label  id="emailLabel" for="email">Login</label>
+                  <input class="form-control" id="email" type="email" placeholder="Digite seu e-mail" formControlName="email"  [class.is-invalid] = "form.get('email')?.invalid && form.get('email')?.touched">
+  
+                  <label id="senhaLabel" for="senha">Senha*</label>
+                  <input type="password" id="senha"  class="form-control" placeholder="Digite sua senha" formControlName="senha" [class.is-invalid] = "form.get('senha')?.invalid && form.get('senha')?.touched">
+  
+                  <button class="btn btn-lg btn-primary w-100 float-left"> Entrar</button>
+                </div>
+              </div>
+            </form>
+            <div class="row" style="margin-top:10px;">
+              <div class="col-md-12" style="text-align: center;">
+                 <a class="nav-link text-dark" href="/conta/cadastro">Não tem uma conta? <b>Cadastre-se</b></a>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+    </div>
+  </div>
+  

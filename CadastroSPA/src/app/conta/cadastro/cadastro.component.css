@@ -1,0 +1,26 @@
+.card{
+    margin-top: 4em;
+  }
+  
+  .card,
+  .card-title{
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card-title{
+    background-color: #746f72;
+    font-size: 32px;
+    padding: 15px;
+    color:#f1f1f1;
+  }
+  
+  input{
+    margin-bottom: 1.5em;
+  }
+  .mg-tp-10{
+    margin-top:10px
+  }
+  
