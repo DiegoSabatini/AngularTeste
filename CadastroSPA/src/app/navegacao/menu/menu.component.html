@@ -7,13 +7,12 @@
                 </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" >
 
-                <app-menu-login></app-menu-login>
 
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
+                <ul class="navbar-nav flex-grow-1" [ngSwitch]="usuarioLogado()">
+                    <li class="nav-item" *ngSwitchCase="true">
                         <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngSwitchCase="true">
                         <a class="nav-link text-dark" [routerLink]="['/fornecedores/listar-todos']">Usuários</a>
                     </li>
                 </ul>
