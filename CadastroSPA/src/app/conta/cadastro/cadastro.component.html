@@ -7,21 +7,22 @@
            Cadastro
           </h5>
           <div class="card-body ">
-            <form class="card-text" [formGroup]="cadastroForm">
+            <form class="card-text" (ngSubmit)="onSubmit()" [formGroup]="form">
               <div class="row">
                 <div class="col-md-12"></div>
                 <div class="col-md-12">
                   <label  id="emailLabel" for="email">Email*</label>
-                  <input class="form-control" id="email" type="email" placeholder="E-mail (requerido)" formControlName="email"  [class.is-invalid] = "cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched">
-  
+                  <input class="form-control" id="email" type="email" placeholder="E-mail (requerido)" formControlName="email"  [class.is-invalid] = "form.get('email')?.invalid && form.get('email')?.touched">
+                  
                   <label id="senhaLabel" for="senha">Senha*</label>
-                  <input type="password" id="senha"  class="form-control" formControlName="senha" [class.is-invalid] = "cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched">
+                  <input type="password" id="senha"  class="form-control" formControlName="senha" [class.is-invalid] = "form.get('senha')?.invalid && form.get('senha')?.touched">
   
                   <label id="confirmarSenhaLabel" for="senha">Confirmar Senha*</label>
-                  <input type="password" id="confirmarSenha"  class="form-control" formControlName="confirmarSenha" [class.is-invalid] = "cadastroForm.get('confirmarSenha')?.invalid && cadastroForm.get('confirmarSenha')?.touched">
+                  <input type="password" id="confirmarSenha"  class="form-control" formControlName="confirmarSenha" [class.is-invalid] = "form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
   
-                  <button class="btn btn-lg btn-primary w-100"> Cadastrar</button>
-                  
+                  <div class="form-row">
+                    <button type="submit" class="btn btn-lg btn-primary w-100" [disabled]="!form.valid">Cadastrar</button> 
+                  </div>
                 </div>
               </div>
             </form>

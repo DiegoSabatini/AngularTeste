@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit{
-  public cadastroForm!: FormGroup;
+  form: FormGroup= new FormGroup({});
 
 
   constructor(private _formBuilder: FormBuilder){
-    this.cadastroForm = this._formBuilder.group({
+    this.form = this._formBuilder.group({
       email: new FormControl('',[
         Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
@@ -27,6 +27,11 @@ export class CadastroComponent implements OnInit{
 
   ngOnInit(): void {
  
+  }
+
+
+  onSubmit() {
+    let teste = this.form.controls;
   }
 
 }

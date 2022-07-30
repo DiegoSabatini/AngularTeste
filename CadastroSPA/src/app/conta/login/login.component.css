@@ -28,4 +28,7 @@
   .w-40{
     width: 40%;
   }
+  button:disabled{
+    opacity: 0.3;
   
+  }

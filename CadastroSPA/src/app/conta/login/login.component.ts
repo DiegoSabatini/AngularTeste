@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit{
         Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       senha: new FormControl('',[
-        Validators.required,
-      Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-+]).{8,}$")])
+        Validators.required])
     });
   }
 
@@ -28,6 +27,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    let teste = this.form.controls;
+    debugger
+    let email = this.form.controls['email'].value;
+    let senha = this.form.controls['senha'].value;
   }
 }

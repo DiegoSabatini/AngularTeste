@@ -17,7 +17,9 @@
                   <label id="senhaLabel" for="senha">Senha*</label>
                   <input type="password" id="senha"  class="form-control" placeholder="Digite sua senha" formControlName="senha" [class.is-invalid] = "form.get('senha')?.invalid && form.get('senha')?.touched">
   
-                  <button class="btn btn-lg btn-primary w-100 float-left"> Entrar</button>
+                  <div class="form-row">
+                    <button type="submit" class="btn btn-lg btn-primary w-100" [disabled]="!form.valid">Entrar</button> 
+                  </div>
                 </div>
               </div>
             </form>
