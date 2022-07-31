@@ -6,6 +6,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" >
+                <ul [ngSwitch]="usuarioLogado()" class="navbar-nav">
+                    <li *ngSwitchCase="true" class="nav-item">
+                        <a class="nav-link text-dark" href="javascript:void(0)" (click)="logout()">
+                            Sair <span class="fas fa-sign-out-alt"></span></a>
+                    </li>
+                </ul>
 
 
                 <ul class="navbar-nav flex-grow-1" [ngSwitch]="usuarioLogado()">

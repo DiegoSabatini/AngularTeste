@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalStorageUtils } from 'src/app/utils/localstorage';
 
 @Component({
@@ -13,7 +14,7 @@ export class MenuComponent {
   user: any;
   email: string = "";
 
-  constructor() {
+  constructor(private router: Router) {
     this.isCollapsed = true;
   }
 
@@ -25,5 +26,10 @@ export class MenuComponent {
       this.email = this.user.email;
 
     return (this.token !== null && this.token !== "");
+  }
+
+  logout() {
+    this.localStorageUtils.limparDadosLocaisUsuario();
+    this.router.navigate(['/conta/login']);
   }
 }
