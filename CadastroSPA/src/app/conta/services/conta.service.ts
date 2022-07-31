@@ -14,6 +14,7 @@ export class ContaService extends BaseService {
   constructor(public http: HttpClient) { super()}
 
   registrarUsuario(usuario: UsuarioNovaConta): Observable<UsuarioNovaConta> {
+    debugger
     let response = this.http
         .post(this.UrlServiceV1 + 'Identidade/nova-conta', usuario, this.ObterHeaderJson())
         .pipe(
@@ -24,7 +25,6 @@ export class ContaService extends BaseService {
 }
 
 login(usuario: UsuarioLogin): Observable<UsuarioLogin> {
-    debugger
     let response = this.http
         .post(this.UrlServiceV1 + 'Identidade/autenticar', usuario, this.ObterHeaderJson())
         .pipe(

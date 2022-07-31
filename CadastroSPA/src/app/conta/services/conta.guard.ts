@@ -8,7 +8,6 @@ export class ContaGuard implements CanActivate {
   constructor(  private router: Router ) { }
 
   canActivate() {
-    debugger
     let token:string = this.localStorageUtils.obterTokenUsuario();
     if (token !== null && token !== ""){
         this.router.navigate(['/home']);

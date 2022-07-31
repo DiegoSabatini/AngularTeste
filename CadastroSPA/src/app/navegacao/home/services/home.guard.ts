@@ -9,7 +9,6 @@ export class HomeGuard implements CanActivate {
     constructor(private router: Router) { }
 
   canActivate() {
-    debugger
     let token:string = this.localStorageUtils.obterTokenUsuario();
     if (token !== null && token !== ""){
         return true;

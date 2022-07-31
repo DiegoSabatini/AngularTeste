@@ -9,7 +9,14 @@
           <div class="card-body ">
             <form class="card-text" (ngSubmit)="onSubmit()" [formGroup]="form">
               <div class="row">
-                <div class="col-md-12"></div>
+                <div class="col-md-12">
+                  <div class="alert alert-danger" *ngIf="errors.length > 0">
+                    <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                    <ul>
+                        <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
+                </div>
+                </div>
                 <div class="col-md-12">
                   <label  id="emailLabel" for="email">Email*</label>
                   <input class="form-control" id="email" type="email" placeholder="E-mail (requerido)" formControlName="email"  [class.is-invalid] = "form.get('email')?.invalid && form.get('email')?.touched">
@@ -18,7 +25,7 @@
                   <input type="password" id="senha"  class="form-control" formControlName="senha" [class.is-invalid] = "form.get('senha')?.invalid && form.get('senha')?.touched">
   
                   <label id="confirmarSenhaLabel" for="senha">Confirmar Senha*</label>
-                  <input type="password" id="confirmarSenha"  class="form-control" formControlName="confirmarSenha" [class.is-invalid] = "form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
+                  <input type="password" id="senhaConfirmacao"  class="form-control" formControlName="senhaConfirmacao" [class.is-invalid] = "form.get('senhaConfirmacao')?.invalid && form.get('senhaConfirmacao')?.touched">
   
                   <div class="form-row">
                     <button type="submit" class="btn btn-lg btn-primary w-100" [disabled]="!form.valid">Cadastrar</button> 
