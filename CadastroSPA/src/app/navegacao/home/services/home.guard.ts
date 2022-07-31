@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
+import { LocalStorageUtils } from 'src/app/utils/localstorage';
 
 @Injectable()
 export class HomeGuard implements CanActivate {
 
-  constructor( ) { }
+    localStorageUtils = new LocalStorageUtils();
+    constructor(private router: Router) { }
 
   canActivate() {
-    return true;
+    debugger
+    let token:string = this.localStorageUtils.obterTokenUsuario();
+    if (token !== null && token !== ""){
+        return true;
+    }
+    this.router.navigate(['/conta/login']);
+    return false;
   }
 
 

@@ -28,13 +28,11 @@ export abstract class BaseService {
     }
 
     protected extractData(response: any) {
-        debugger
         return response || {};
     }
 
     protected serviceError(response: Response | any) {
        
-debugger
         let customError: string[] = [];
         let customResponse = { error: { errors:  [] = [] }}
 

@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeGuard } from './navegacao/home/services/home.guard';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
@@ -18,7 +19,9 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     ToastrModule.forRoot(),
     NavegacaoModule
   ],
-  providers: [],
+  providers: [
+    HomeGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import { ContaGuard } from './services/conta.guard';
 
 const contaRouterConfig: Routes = [
     {path: '', component: LoginComponent},
-    { path: 'cadastro', component: CadastroComponent, canActivate: [ContaGuard], canDeactivate: [ContaGuard] },
+    { path: 'cadastro', component: CadastroComponent, canActivate: [ContaGuard] },
     { path: 'login', component: LoginComponent, canActivate: [ContaGuard] }
 ];
 

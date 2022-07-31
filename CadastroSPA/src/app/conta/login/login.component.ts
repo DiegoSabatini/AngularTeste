@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit{
 
+  errors: any[] = [];
   form: FormGroup= new FormGroup({});
   private usuarioLogin!: UsuarioLogin;
 
@@ -34,7 +35,6 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    debugger
     if (this.form.dirty && this.form.valid){
       this.usuarioLogin = Object.assign({}, this.usuarioLogin, this.form.value);
       this.contaService.login(this.usuarioLogin)
@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit{
 
   processarSucesso(response: any) {
     this.form.reset();
+    this.errors = [];
 
     this.contaService.LocalStorage.salvarDadosLocaisUsuario(response);
 
@@ -59,12 +60,12 @@ export class LoginComponent implements OnInit{
   }
   processarFalha(fail: any){
     this.form.reset();
-    debugger
+    this.errors = fail.error.errors.Mensagens;
     if (fail.error?.errors && fail.error.errors.Mensagens && fail.error.errors.Mensagens.length > 0){
-      alert(fail.error.errors.Mensagens[0]);
+      this.errors = fail.error.errors.Mensagens;
     }
     else{
-      alert('Ocorreu um erro!');
+      this.toastr.error('Ocorreu um erro!');
     }
     
   }
